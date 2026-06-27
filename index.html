@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Legal — Keith's Plumbing and Electrical</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy:   #1B2A3B;
+    --steel:  #2E4A6A;
+    --gold:   #C48A2F;
+    --cream:  #F7F4EF;
+    --ink:    #1B2A3B;
+    --muted:  #6B7A8A;
+    --rule:   #D4C9B8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--navy);
+    padding: 36px 24px 32px;
+    text-align: center;
+    border-bottom: 4px solid var(--gold);
+  }
+  header .wordmark {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
+  header .wordmark span { color: var(--gold); }
+  header .sub {
+    font-size: 0.8rem;
+    color: #8CA0B5;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* ── Nav tabs ── */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: var(--steel);
+  }
+  nav button {
+    background: none;
+    border: none;
+    color: #A8BDD0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  nav button:hover { color: #fff; }
+  nav button.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  .doc { display: none; }
+  .doc.visible { display: block; }
+
+  .doc-title {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .doc-meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 36px;
+  }
+
+  h2 {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h2::before {
+    content: '§';
+    color: var(--gold);
+    margin-right: 8px;
+    font-style: normal;
+  }
+
+  p { margin-bottom: 14px; color: #2C3E50; }
+  p:last-child { margin-bottom: 0; }
+
+  ul {
+    margin: 8px 0 14px 20px;
+    color: #2C3E50;
+  }
+  ul li { margin-bottom: 6px; }
+
+  .contact-box {
+    background: var(--navy);
+    color: #C8D8E8;
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    margin-top: 40px;
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+  .contact-box strong { color: var(--gold); display: block; margin-bottom: 4px; }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+    padding: 24px;
+    border-top: 1px solid var(--rule);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">Keith's <span>Plumbing</span> and <span>Electrical</span></div>
+  <div class="sub">Camden, TN &nbsp;·&nbsp; Licensed &amp; Insured</div>
+</header>
+
+<nav>
+  <button class="active" onclick="show('privacy', this)">Privacy Policy</button>
+  <button onclick="show('terms', this)">Terms &amp; Conditions</button>
+</nav>
+
+<main>
+
+  <!-- ═══ PRIVACY POLICY ═══ -->
+  <div class="doc visible" id="privacy">
+    <div class="doc-title">Privacy Policy</div>
+    <div class="doc-meta">Keith's Plumbing and Electrical LLC &nbsp;·&nbsp; Effective Date: June 27, 2025</div>
+
+    <h2>Who We Are</h2>
+    <p>Keith's Plumbing and Electrical LLC ("we," "us," or "our") is a licensed plumbing and electrical service company located at 245 Ashby Rd, Camden, TN 38320. We provide residential and commercial service calls throughout West Tennessee.</p>
+
+    <h2>Information We Collect</h2>
+    <p>When you contact us to request service or a quote, we may collect:</p>
+    <ul>
+      <li>Your name</li>
+      <li>Phone number (including mobile number)</li>
+      <li>Service address</li>
+      <li>Description of the work requested</li>
+    </ul>
+    <p>We do not collect payment card numbers directly. We do not operate a website contact form that stores submissions.</p>
+
+    <h2>How We Use Your Information</h2>
+    <p>We use the information you provide solely to:</p>
+    <ul>
+      <li>Schedule and confirm your service appointment</li>
+      <li>Send you arrival notifications and job status updates via SMS</li>
+      <li>Follow up on estimates or quotes we have provided</li>
+      <li>Contact you regarding parts or scheduling changes related to your job</li>
+    </ul>
+    <p>We do not sell, rent, lease, or share your personal information with third parties for marketing purposes.</p>
+
+    <h2>SMS Messaging</h2>
+    <p>If you provide your mobile phone number when contacting us, you consent to receive transactional SMS messages from Keith's Plumbing and Electrical related to your service request. These messages may include appointment confirmations, technician arrival notices, job completion notices, and estimate follow-ups.</p>
+    <p>Message and data rates may apply. You may opt out at any time by replying <strong>STOP</strong> to any message we send. After opting out, you will receive one confirmation message and no further SMS from us.</p>
+
+    <h2>Data Retention</h2>
+    <p>We retain your contact information only as long as necessary to complete your service request and for standard business recordkeeping. We do not maintain a marketing database.</p>
+
+    <h2>Your Rights</h2>
+    <p>You may request that we delete your contact information from our records at any time by contacting us directly. We will honor such requests promptly.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. The effective date at the top of this page will reflect the most recent revision.</p>
+
+    <div class="contact-box">
+      <strong>Contact Us</strong>
+      Keith's Plumbing and Electrical LLC<br/>
+      245 Ashby Rd, Camden, TN 38320<br/>
+      For questions about this policy, contact us by phone at the number on your service invoice.
+    </div>
+  </div>
+
+  <!-- ═══ TERMS & CONDITIONS ═══ -->
+  <div class="doc" id="terms">
+    <div class="doc-title">Terms &amp; Conditions</div>
+    <div class="doc-meta">Keith's Plumbing and Electrical LLC &nbsp;·&nbsp; Effective Date: June 27, 2025</div>
+
+    <h2>Agreement to Terms</h2>
+    <p>By requesting service from Keith's Plumbing and Electrical LLC, you agree to the following terms and conditions. These terms govern all service calls, estimates, and work performed by our company.</p>
+
+    <h2>Services Provided</h2>
+    <p>Keith's Plumbing and Electrical LLC provides residential and commercial plumbing and electrical service calls in West Tennessee. All work is performed by licensed technicians. We reserve the right to decline any job that is outside our scope of licensure or that presents safety concerns.</p>
+
+    <h2>Estimates and Pricing</h2>
+    <p>Estimates are provided in good faith based on the information available at the time. Final pricing may vary if conditions discovered on-site differ from what was originally described. Any change in scope will be communicated to the customer before additional work proceeds.</p>
+    <p>A service call fee applies to all dispatched jobs. Labor is billed at our current hourly rate. Materials are billed at cost plus a standard markup. Applicable Tennessee sales tax will be added to all taxable materials.</p>
+
+    <h2>Payment</h2>
+    <p>Payment is due upon completion of work unless a prior arrangement has been made. We accept cash, check, and commonly used electronic payment methods. Returned checks are subject to a returned check fee.</p>
+
+    <h2>SMS Communications</h2>
+    <p>By providing your mobile phone number when scheduling service, you consent to receive transactional SMS messages from Keith's Plumbing and Electrical related to your appointment or service request. These messages are strictly for service-related communication — not advertising. You may opt out at any time by replying <strong>STOP</strong>.</p>
+    <p>Message and data rates from your carrier may apply. We are not responsible for any charges incurred from your wireless provider.</p>
+
+    <h2>Warranty</h2>
+    <p>We stand behind our work. Labor performed by Keith's Plumbing and Electrical is warranted for 30 days from the date of service. Manufacturer warranties apply to parts and materials as provided by the manufacturer. Warranty does not cover damage caused by customer misuse, pre-existing conditions unrelated to our work, or acts outside our control.</p>
+
+    <h2>Limitation of Liability</h2>
+    <p>Keith's Plumbing and Electrical LLC is not liable for incidental or consequential damages arising from service performed in good faith. Our liability is limited to the cost of the original service performed.</p>
+
+    <h2>Cancellations</h2>
+    <p>We ask for reasonable notice if you need to cancel or reschedule a scheduled appointment. Repeated last-minute cancellations may result in a requirement for a deposit before future service is scheduled.</p>
+
+    <h2>Governing Law</h2>
+    <p>These terms are governed by the laws of the State of Tennessee. Any disputes shall be resolved in the courts of Benton County, Tennessee.</p>
+
+    <h2>Changes to These Terms</h2>
+    <p>We reserve the right to update these Terms &amp; Conditions at any time. The effective date at the top of this page reflects the most recent revision.</p>
+
+    <div class="contact-box">
+      <strong>Questions?</strong>
+      Keith's Plumbing and Electrical LLC<br/>
+      245 Ashby Rd, Camden, TN 38320<br/>
+      Contact us by phone at the number on your service invoice or estimate.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2025 Keith's Plumbing and Electrical LLC &nbsp;·&nbsp; Camden, TN &nbsp;·&nbsp; All rights reserved.
+</footer>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.doc').forEach(d => d.classList.remove('visible'));
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('visible');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
