@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMS Opt-In — Keith's Plumbing & Electrical</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --blue: #1a3a5c;
+    --gold: #c9962a;
+    --gold-light: #e8b84b;
+    --white: #f9f7f2;
+    --gray: #8a9bb0;
+    --light-bg: #eef1f5;
+    --border: #d0d9e3;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', sans-serif; background: var(--light-bg); color: var(--navy); min-height: 100vh; display: flex; flex-direction: column; }
+  .header-stripe { height: 5px; background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold)); }
+  header { background: var(--navy); }
+  .header-inner { display: flex; align-items: center; gap: 16px; padding: 20px 32px; }
+  .brand h1 { font-family: 'Oswald', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--white); letter-spacing: 0.04em; text-transform: uppercase; }
+  .brand p { font-size: 0.75rem; color: var(--gold-light); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px; font-weight: 300; }
+  .hero { background: linear-gradient(135deg, var(--blue), var(--navy)); padding: 36px 24px 30px; text-align: center; }
+  .hero h2 { font-family: 'Oswald', sans-serif; font-size: 1.6rem; color: var(--white); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 10px; }
+  .hero p { color: #b8c8da; font-size: 0.92rem; max-width: 460px; margin: 0 auto; line-height: 1.6; }
+  main { flex: 1; display: flex; justify-content: center; padding: 28px 16px 48px; }
+  .card { background: #fff; border-radius: 8px; box-shadow: 0 2px 16px rgba(13,27,42,0.10); width: 100%; max-width: 520px; border: 1px solid var(--border); overflow: hidden; }
+  .card-body { padding: 30px 30px; }
+  .section-label { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 600; }
+  .notify-list { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; }
+  .notify-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; line-height: 1.4; }
+  .dot { width: 22px; height: 22px; background: var(--gold); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: #fff; font-weight: 700; margin-top: 1px; }
+  .divider { height: 1px; background: var(--border); margin: 0 0 22px; }
+  .form-group { margin-bottom: 16px; }
+  label { display: block; font-size: 0.82rem; font-weight: 500; color: var(--blue); margin-bottom: 5px; }
+  label .req { color: var(--gold); }
+  input[type="text"], input[type="tel"], input[type="email"] { width: 100%; padding: 11px 13px; border: 1.5px solid var(--border); border-radius: 5px; font-family: 'Source Sans 3', sans-serif; font-size: 0.95rem; color: var(--navy); background: var(--white); outline: none; transition: border-color 0.2s; }
+  input:focus { border-color: var(--gold); background: #fff; }
+  .consent-block { background: #f2f5f9; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 20px; }
+  .consent-check { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+  .consent-check input[type="checkbox"] { width: 20px; height: 20px; flex-shrink: 0; accent-color: var(--gold); margin-top: 2px; cursor: pointer; }
+  .consent-text { font-size: 0.85rem; line-height: 1.55; color: #3a4a5c; }
+  .consent-text strong { color: var(--navy); }
+  .legal { font-size: 0.74rem; color: var(--gray); line-height: 1.55; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+  .legal a { color: var(--gold); text-decoration: none; }
+  .btn-submit { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--navy); border: none; border-radius: 5px; font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s; }
+  .btn-submit:hover { opacity: 0.9; }
+  .btn-submit:disabled { opacity: 0.45; cursor: not-allowed; }
+  .success-msg { display: none; text-align: center; padding: 40px 24px; }
+  .success-msg .check { width: 64px; height: 64px; background: #e7f5ee; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 1.8rem; }
+  .success-msg h3 { font-family: 'Oswald', sans-serif; font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .success-msg p { font-size: 0.9rem; color: #556677; line-height: 1.55; }
+  footer { background: var(--navy); padding: 16px 24px; text-align: center; }
+  footer p { font-size: 0.74rem; color: #5a7090; line-height: 1.6; }
+  footer a { color: var(--gold-light); text-decoration: none; }
+  @media(max-width:540px) { .header-inner { padding: 16px 18px; } .hero { padding: 26px 18px 22px; } .card-body { padding: 22px 18px; } }
+</style>
+</head>
+<body>
+
+<div class="header-stripe"></div>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <h1>Keith's Plumbing &amp; Electrical</h1>
+      <p>Licensed &amp; Insured · Camden, Tennessee</p>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <h2>📱 SMS Job Status Notifications</h2>
+  <p>Opt in below to receive text updates about your service appointment — from scheduling to completed invoice.</p>
+</div>
+
+<main>
+  <div class="card">
+    <div class="card-body" id="form-container">
+
+      <p class="section-label">You will receive texts when:</p>
+      <ul class="notify-list">
+        <li><span class="dot">1</span> Your service job is created and scheduled</li>
+        <li><span class="dot">2</span> Your technician is on the way</li>
+        <li><span class="dot">3</span> The job is completed</li>
+        <li><span class="dot">4</span> Your invoice has been sent</li>
+      </ul>
+
+      <div class="divider"></div>
+
+      <div class="form-group">
+        <label for="fname">Full Name <span class="req">*</span></label>
+        <input type="text" id="fname" placeholder="Your full name" autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="phone">Mobile Phone Number <span class="req">*</span></label>
+        <input type="tel" id="phone" placeholder="(731) 555-0100" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address <span class="req">*</span></label>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+      </div>
+
+      <div class="consent-block">
+        <label class="consent-check" for="consent">
+          <input type="checkbox" id="consent">
+          <span class="consent-text">
+            <strong>I agree to receive SMS text messages</strong> from Keith's Plumbing &amp; Electrical regarding my service appointments — including scheduling confirmations, technician dispatch notices, job completion updates, and invoice notifications. Message frequency varies based on service activity.
+          </span>
+        </label>
+        <p class="legal">
+          By checking this box you expressly consent to receive transactional SMS messages from Keith's Plumbing &amp; Electrical, 245 Ashby Rd, Camden, TN 38320. <strong>Msg &amp; data rates may apply.</strong> Reply <strong>STOP</strong> to cancel at any time. Reply <strong>HELP</strong> for help or call (731) 441-0137. This is not a marketing program. Your information is never sold or shared with third parties. See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms &amp; Conditions</a>.
+        </p>
+      </div>
+
+      <button class="btn-submit" id="submitBtn" onclick="handleSubmit()" disabled>Opt In to SMS Updates</button>
+
+    </div>
+
+    <div class="success-msg" id="success-msg">
+      <div class="check">✅</div>
+      <h3>You're All Set!</h3>
+      <p>Thank you! You'll receive SMS job status updates from Keith's Plumbing &amp; Electrical at the number you provided.<br><br>Reply <strong>STOP</strong> at any time to opt out.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>
+    Keith's Plumbing &amp; Electrical LLC · 245 Ashby Rd, Camden, TN 38320<br>
+    Licensed &amp; Insured · (731) 441-0137<br>
+    <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html">Terms &amp; Conditions</a>
+  </p>
+</footer>
+
+<script>
+  const consent = document.getElementById('consent');
+  const submitBtn = document.getElementById('submitBtn');
+  const fname = document.getElementById('fname');
+  const phone = document.getElementById('phone');
+  const email = document.getElementById('email');
+
+  function checkForm() {
+    submitBtn.disabled = !(consent.checked && fname.value.trim() && phone.value.trim() && email.value.trim());
+  }
+
+  [fname, phone, email].forEach(el => el.addEventListener('input', checkForm));
+  consent.addEventListener('change', checkForm);
+
+  function handleSubmit() {
+    if (!fname.value.trim() || !phone.value.trim() || !email.value.trim() || !consent.checked) return;
+    const entry = {
+      name: fname.value.trim(),
+      phone: phone.value.trim(),
+      email: email.value.trim(),
+      consent: true,
+      timestamp: new Date().toISOString(),
+      source: 'keithsplumbing-optin-form'
+    };
+    console.log('Opt-in recorded:', entry);
+    document.getElementById('form-container').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  }
+</script>
+</body>
+</html>
